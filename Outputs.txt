@@ -1,0 +1,70 @@
+How to run?
+
+There are 3 files markov_generator\markov.py, markov_generator\test_markov.py and pp.txt
+
+First, test_markov.py -> Run Module
+
+Then, markov.py -> Run Module
+
+Two ways:
+1) using predict function
+2) using repl()
+
+Outputs:
+
+Python 3.8.5 (tags/v3.8.5:580fbb0, Jul 20 2020, 15:57:54) [MSC v.1924 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license()" for more information.
+>>> 
+= RESTART: C:\Users\Abhilash Rajaram\Documents\Oreilly\Matt_Harrison\markov_generator\test_markov.py
+....
+----------------------------------------------------------------------
+Ran 4 tests in 0.006s
+
+OK
+>>> 
+= RESTART: C:\Users\Abhilash Rajaram\Documents\Oreilly\Matt_Harrison\markov_generator\markov.py
+>>> m = from_file('pp.txt', size=10)				#Method 1
+>>> m.predict('D')
+'a'
+>>> m.predict('Da')
+'r'
+>>> m.predict('Dar')
+'c'
+>>> m.predict('Darc')
+'y'
+>>> m.predict('Darcy')
+','
+>>> m.predict('Darcy,')
+' '
+>>> m.predict('Darcy, ')
+'w'
+>>> m.predict('Darcy, w')
+'h'
+>>> m.predict('Darcy, wh')
+'o'
+>>> m.predict('Darcy, who')
+' '
+>>> m.predict('Darcy, who ')
+Traceback (most recent call last):
+  File "<pyshell#13>", line 1, in <module>
+    m.predict('Darcy, who ')
+  File "C:\Users\Abhilash Rajaram\Documents\Oreilly\Matt_Harrison\markov_generator\markov.py", line 37, in predict
+    table = self.tables[len(txt)-1]
+IndexError: list index out of range
+>>>
+>>> m = from_file('pp.txt', size=4)						#Method 2
+>>> repl(m)
+Welcome to the Markov REPL. (Hit Ctl-C to exit)
+>D
+e
+>De
+r
+>Der
+b
+>Derb
+y
+>Derby
+Try again
+>
+Goodbye
+ 
